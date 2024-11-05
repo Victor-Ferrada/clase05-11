@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Listado de productos</h1>
+    <h2>Por categoria</h2>
+    <p>{{categoria}}</p>
+    <br>
+    {% for lista in listas %}
+    <p>Publicacion: {{ lista.published|date:"SHORT_DATE_FORMAT" }}</p>
+    <p>Nombre Producto:{{lista.name}}</p>
+    <p><img src="{{ lista.image.url }}" alt="{{ lista.name }}" width="150" height="150"></p>
+    <p>Detalle: {{lista.detail}}</p>
+    <p>Vendedor:{{lista.author}}</p>
+    <p>Categorias: {{lista.category.all|join:","}}</p>
+    <hr>
+    {% endfor %}
+    
+</body>
+</html>
